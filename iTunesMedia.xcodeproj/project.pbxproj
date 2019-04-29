@@ -12,6 +12,9 @@
 		B9D49CAC22778C8800753C74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9D49CAA22778C8800753C74 /* Main.storyboard */; };
 		B9D49CAE22778C8900753C74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9D49CAD22778C8900753C74 /* Assets.xcassets */; };
 		B9D49CB122778C8900753C74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9D49CAF22778C8900753C74 /* LaunchScreen.storyboard */; };
+		B9D49CB9227792C600753C74 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D49CB8227792C600753C74 /* Media.swift */; };
+		B9D49CBB2277930500753C74 /* MediaResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D49CBA2277930500753C74 /* MediaResult.swift */; };
+		B9D49CC12277937900753C74 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D49CC02277937900753C74 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		B9D49CAD22778C8900753C74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9D49CB022778C8900753C74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9D49CB222778C8900753C74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9D49CB8227792C600753C74 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		B9D49CBA2277930500753C74 /* MediaResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaResult.swift; sourceTree = "<group>"; };
+		B9D49CC02277937900753C74 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,49 @@
 		B9D49CA522778C8800753C74 /* iTunesMedia */ = {
 			isa = PBXGroup;
 			children = (
-				B9D49CA622778C8800753C74 /* AppDelegate.swift */,
-				B9D49CA822778C8800753C74 /* ViewController.swift */,
-				B9D49CAA22778C8800753C74 /* Main.storyboard */,
+				B9D49CBF2277936700753C74 /* Service */,
+				B9D49CBE2277935B00753C74 /* View */,
+				B9D49CBD2277934B00753C74 /* Controller */,
+				B9D49CBC2277933400753C74 /* Model */,
 				B9D49CAD22778C8900753C74 /* Assets.xcassets */,
 				B9D49CAF22778C8900753C74 /* LaunchScreen.storyboard */,
 				B9D49CB222778C8900753C74 /* Info.plist */,
 			);
 			path = iTunesMedia;
+			sourceTree = "<group>";
+		};
+		B9D49CBC2277933400753C74 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B9D49CB8227792C600753C74 /* Media.swift */,
+				B9D49CBA2277930500753C74 /* MediaResult.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B9D49CBD2277934B00753C74 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B9D49CA622778C8800753C74 /* AppDelegate.swift */,
+				B9D49CA822778C8800753C74 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B9D49CBE2277935B00753C74 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B9D49CAA22778C8800753C74 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B9D49CBF2277936700753C74 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B9D49CC02277937900753C74 /* NetworkService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +176,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9D49CC12277937900753C74 /* NetworkService.swift in Sources */,
 				B9D49CA922778C8800753C74 /* ViewController.swift in Sources */,
 				B9D49CA722778C8800753C74 /* AppDelegate.swift in Sources */,
+				B9D49CB9227792C600753C74 /* Media.swift in Sources */,
+				B9D49CBB2277930500753C74 /* MediaResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
