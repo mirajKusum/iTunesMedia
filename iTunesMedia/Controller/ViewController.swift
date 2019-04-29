@@ -30,13 +30,26 @@ class ViewController: UIViewController {
         tableview.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         tableview.tableFooterView = UIView()
         fetchSongMedia()
+        fetchAppMedia()
     }
     
     func fetchSongMedia() {
         let urlString = "https://rss.itunes.apple.com/api/v1/us/itunes-music/hot-tracks/all/10/explicit.json"
         NetworkService.shared.fetchResults(with: urlString) { [weak self] response in
             print(response.feed.results)
-            self?.results = response.feed.results
+            self?.results.append(contentsOf: response.feed.results)
+            DispatchQueue.main.async {
+                self?.tableview.reloadData()
+            }
+            
+        }
+    }
+    
+    func fetchAppMedia() {
+        let urlString = "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-grossing/all/10/explicit.json"
+        NetworkService.shared.fetchResults(with: urlString) { [weak self] response in
+            print(response.feed.results)
+            self?.results.append(contentsOf: response.feed.results)
             DispatchQueue.main.async {
                 self?.tableview.reloadData()
             }
