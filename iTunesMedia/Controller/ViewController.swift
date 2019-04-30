@@ -78,11 +78,6 @@ extension ViewController: UITableViewDataSource {
             fatalError("Media cell not found")
         }
         let result = results[indexPath.row]
-//        cell.textLabel?.text = result.name
-//        if let urlString = result.imageURLString, let url = URL(string: urlString) {
-//            let data = try? Data(contentsOf: url)
-//            cell.imageView?.image = UIImage(data: data!)
-//        }
         cell.media = result
         return cell
     }

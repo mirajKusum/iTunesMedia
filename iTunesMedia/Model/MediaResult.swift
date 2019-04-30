@@ -10,7 +10,6 @@ import Foundation
 
 struct Feed: Codable {
     var feed: MediaResult
-    
 }
 
 struct MediaResult: Codable {
