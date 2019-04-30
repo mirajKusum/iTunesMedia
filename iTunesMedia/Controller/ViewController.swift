@@ -11,7 +11,9 @@ import UIKit
 class ViewController: UIViewController {
 
     var tableview: UITableView = {
-        return UITableView()
+        let tableView = UITableView()
+        
+        return tableView
     }()
     
     var results = [Media]()
@@ -23,12 +25,20 @@ class ViewController: UIViewController {
     }
     
     func setupUI() {
+        title = "My Media"
         tableview.frame = view.frame
         view.addSubview(tableview)
+        tableview.translatesAutoresizingMaskIntoConstraints = false
+        let margins = view.layoutMarginsGuide
+        tableview.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
+        tableview.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+        tableview.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+        tableview.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
         
         tableview.dataSource = self
-        tableview.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        tableview.register(MediaCell.self, forCellReuseIdentifier: cellIdentifier)
         tableview.tableFooterView = UIView()
+        tableview.rowHeight = 80
         fetchSongMedia()
         fetchAppMedia()
     }
@@ -64,14 +74,16 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        let result = results[indexPath.row]
-        cell.textLabel?.text = result.name
-        if let urlString = result.imageURLString, let url = URL(string: urlString) {
-            let data = try? Data(contentsOf: url)
-            cell.imageView?.image = UIImage(data: data!)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MediaCell else {
+            fatalError("Media cell not found")
         }
-        
+        let result = results[indexPath.row]
+//        cell.textLabel?.text = result.name
+//        if let urlString = result.imageURLString, let url = URL(string: urlString) {
+//            let data = try? Data(contentsOf: url)
+//            cell.imageView?.image = UIImage(data: data!)
+//        }
+        cell.media = result
         return cell
     }
 }
